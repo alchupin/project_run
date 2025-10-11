@@ -1,0 +1,17 @@
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from django.conf import setting 
+
+@api_view(['GET'])
+def get_org_info(request):
+    company_name = settings.COMPANY_NAME
+    slogan = setting.SLOGAN
+    contacts = setting.contacts
+    return Response(
+        {
+            'company_name': company_name,
+            'slogan': slogan,
+            'contacts':contacts,
+        }
+    )

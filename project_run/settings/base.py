@@ -114,3 +114,8 @@ STATIC_ROOT = 'static'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+COMPANY_NAME = 'Километражеры'
+SLOGAN = 'Маленькими шагами к большим дистанциям'
+CONTACTS = 'аллея Вдох–Выдох, д. 5/2, офис дыхательных пауз'
