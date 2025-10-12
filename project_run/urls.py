@@ -8,5 +8,5 @@ from .views import get_org_info
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/api/company_details/', get_org_info),
+    path('api/company_details/', get_org_info),
 ]

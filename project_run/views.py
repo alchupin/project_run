@@ -6,8 +6,8 @@ from django.conf import settings
 @api_view(['GET'])
 def get_org_info(request):
     company_name = settings.COMPANY_NAME
-    slogan = setting.SLOGAN
-    contacts = setting.contacts
+    slogan = settings.SLOGAN
+    contacts = settings.CONTACTS
     return Response(
         {
             'company_name': company_name,
