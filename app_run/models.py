@@ -11,4 +11,3 @@ class Run(models.Model):
     class Meta:
         verbose_name = "Забег"
         verbose_name_plural = "Забеги"
-
