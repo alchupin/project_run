@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework.routers import DefaultRouter
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 from .views import get_org_info, UserViewSet
 
@@ -18,8 +19,4 @@ urlpatterns = [
 ]
 
 # Добавляем debug toolbar URL только для локальной разработки
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns += [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ]
+urlpatterns.extend(debug_toolbar_urls())
