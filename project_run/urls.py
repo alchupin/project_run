@@ -16,3 +16,10 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/company_details/', get_org_info),
 ]
+
+# Добавляем debug toolbar URL только для локальной разработки
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]
