@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class RunSerializer(serializers.ModelSerializer):
-    athlete = UserSerializer(read_only=True)
+    athlete = UserSerializer()
     class Meta:
         model = Run
         fields = '__all__'
