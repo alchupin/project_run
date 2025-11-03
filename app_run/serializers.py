@@ -12,11 +12,11 @@ class UserSerializer(serializers.ModelSerializer):
 
 class RunListSerializer(serializers.ModelSerializer):
     """Serializer for listing and retrieving runs with nested athlete data"""
-    athlete = UserSerializer(read_only=True)
+    athlete_data = UserSerializer(source='athlete', read_only=True)
 
     class Meta:
         model = Run
-        fields = '__all__'
+        fields = ['id', 'athlete_data', 'comment', 'created_at']
 
 
 class RunCreateSerializer(serializers.ModelSerializer):
