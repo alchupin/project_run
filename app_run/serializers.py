@@ -10,8 +10,18 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'first_name', 'last_name']
 
 
-class RunSerializer(serializers.ModelSerializer):
-    athlete = UserSerializer()
+class RunListSerializer(serializers.ModelSerializer):
+    """Serializer for listing and retrieving runs with nested athlete data"""
+    athlete = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Run
+        fields = '__all__'
+
+
+class RunCreateSerializer(serializers.ModelSerializer):
+    """Serializer for creating and updating runs"""
+
     class Meta:
         model = Run
         fields = '__all__'
