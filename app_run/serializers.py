@@ -10,18 +10,10 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'first_name', 'last_name']
 
 
-class RunListSerializer(serializers.ModelSerializer):
-    """Serializer for listing and retrieving runs with nested athlete data"""
+class RunSerializer(serializers.ModelSerializer):
     athlete_data = UserSerializer(source='athlete', read_only=True)
+    athlete = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), write_only=True)
 
     class Meta:
         model = Run
-        fields = ['id', 'athlete_data', 'comment', 'created_at']
-
-
-class RunCreateSerializer(serializers.ModelSerializer):
-    """Serializer for creating and updating runs"""
-
-    class Meta:
-        model = Run
-        fields = '__all__'
+        fields = ['id', 'athlete', 'athlete_data', 'comment', 'created_at']
